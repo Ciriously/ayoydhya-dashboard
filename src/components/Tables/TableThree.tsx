@@ -1,50 +1,78 @@
+import React, { useState } from 'react'; // Import useState
 import { Package } from '../../types/package';
 
-const packageData: Package[] = [
-  {
-    customerName: 'John Doe',
-    orderTime: '2023-01-13T08:00:00Z',
-    checkInDate: '2023-01-15',
-    checkOutDate: '2023-01-20',
-    trackingID: 'ABC123',
-    orderValue: 0.0,
-    hotelName: 'Hotel ABC',
-    status: 'Paid',
-  },
-  {
-    customerName: 'Jane Smith',
-    orderTime: '2023-01-13T09:30:00Z',
-    checkInDate: '2023-01-14',
-    checkOutDate: '2023-01-19',
-    trackingID: 'DEF456',
-    orderValue: 59.0,
-    hotelName: 'Hotel XYZ',
-    status: 'Paid',
-  },
-  {
-    customerName: 'Bob Johnson',
-    orderTime: '2023-01-13T10:45:00Z',
-    checkInDate: '2023-01-16',
-    checkOutDate: '2023-01-21',
-    trackingID: 'GHI789',
-    orderValue: 99.0,
-    hotelName: 'Hotel 123',
-    status: 'Unpaid',
-  },
-  {
-    customerName: 'Alice Williams',
-    orderTime: '2023-01-13T11:15:00Z',
-    checkInDate: '2023-01-17',
-    checkOutDate: '2023-01-22',
-    trackingID: 'JKL012',
-    orderValue: 59.0,
-    hotelName: 'Hotel XYZ',
-    status: 'Cancelled by user',
-  },
-];
 const TableThree = () => {
+  const [searchTerm, setSearchTerm] = useState(''); // State for search term
+  const [currentPage, setCurrentPage] = useState(1); // State for current page
+  const [itemsPerPage] = useState(5); // Items per page
+
+  const packageData: Package[] = [
+    {
+      customerName: 'John Doe',
+      orderTime: '2023-01-13T08:00:00Z',
+      checkInDate: '2023-01-15',
+      checkOutDate: '2023-01-20',
+      trackingID: 'ABC123',
+      orderValue: 0.0,
+      hotelName: 'Hotel ABC',
+      status: 'Paid',
+    },
+    {
+      customerName: 'Jane Smith',
+      orderTime: '2023-01-13T09:30:00Z',
+      checkInDate: '2023-01-14',
+      checkOutDate: '2023-01-19',
+      trackingID: 'DEF456',
+      orderValue: 59.0,
+      hotelName: 'Hotel XYZ',
+      status: 'Paid',
+    },
+    {
+      customerName: 'Bob Johnson',
+      orderTime: '2023-01-13T10:45:00Z',
+      checkInDate: '2023-01-16',
+      checkOutDate: '2023-01-21',
+      trackingID: 'GHI789',
+      orderValue: 99.0,
+      hotelName: 'Hotel 123',
+      status: 'Unpaid',
+    },
+    {
+      customerName: 'Mary Williams',
+      orderTime: '2023-01-13T11:15:00Z',
+      checkInDate: '2023-01-17',
+      checkOutDate: '2023-01-22',
+      trackingID: 'JKL012',
+      orderValue: 199.0,
+      hotelName: 'Hotel 456',
+      status: 'Pending',
+    },
+  ];
+
+  // Filtering logic based on search term
+  const filteredData = packageData.filter((packageItem) =>
+    packageItem.customerName.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
+
+  // Pagination logic
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
+
+  // Change page
+  // Change page
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
   return (
-    <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
+    <div className="rounded-xl border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1 relative">
+      {/* Search box */}
+      <input
+        type="text"
+        placeholder="Search..."
+        className="absolute top-3 right-3 px-3 py-1 border border-gray-300 rounded-md focus:outline-none focus:border-primary dark:bg-darkinput dark:border-strokedark dark:text-white"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
       <div className="max-w-full overflow-x-auto">
         <table className="w-full table-auto">
           <thead>
@@ -135,6 +163,28 @@ const TableThree = () => {
             ))}
           </tbody>
         </table>
+      </div>
+      {/* Pagination */}
+      <div className="flex justify-between items-center mt-4">
+        <div>
+          <button
+            onClick={() => paginate(currentPage - 1)}
+            disabled={currentPage === 1}
+            className="px-3 py-1 mr-2 border rounded-md bg-gray-200 text-gray-600 dark:bg-darkinput dark:border-strokedark dark:text-white"
+          >
+            Previous
+          </button>
+          <button
+            onClick={() => paginate(currentPage + 1)}
+            disabled={indexOfLastItem >= filteredData.length}
+            className="px-3 py-1 border rounded-md bg-gray-200 text-gray-600 dark:bg-darkinput dark:border-strokedark dark:text-white"
+          >
+            Next
+          </button>
+        </div>
+        <div>
+          Page {currentPage} of {Math.ceil(filteredData.length / itemsPerPage)}
+        </div>
       </div>
     </div>
   );
