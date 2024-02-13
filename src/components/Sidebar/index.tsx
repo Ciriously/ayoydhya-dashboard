@@ -65,7 +65,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
       }`}
     >
       {/* <!-- SIDEBAR HEADER --> */}
-      <div className="flex items-center mb-1 justify-between gap-2 px-6 py-5.5 lg:py-6.5">
+      <div className="flex items-center mb-1 justify-between gap-2 px-15 py-5.5 lg:py-6.5">
         <NavLink to="/">
           <img src={Logo} alt="Logo" />
         </NavLink>
@@ -111,7 +111,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     <React.Fragment>
                       <NavLink
                         to="/dashboard"
-                        className={`group relative flex items-center gap-2.5 rounded-md py-1 h-15 px-5 font-inter font-medium text-[#53545C] duration-300 ease-in-out hover:bg-[#5570f1] hover:py-3.5 hover:px-5.5 hover:text-white dark:hover:bg-meta-4 ${
+                        className={`group relative flex items-center gap-3 rounded-md py-2 h-12 px-5 font-inter font-medium text-[#53545C] duration-300 ease-in-out hover:bg-[#5570f1] hover:py-3.5 hover:px-5.5 hover:text-white dark:hover:bg-meta-4 ${
                           pathname.includes('dashboard')
                             ? 'bg-[#5570f1] text-white'
                             : 'text-gray-500'
@@ -154,7 +154,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <NavLink
                   to="/bookings"
-                  className={`group relative flex items-center gap-2.5 rounded-md py-5 h-15 px-5 font-inter font-medium text-[#53545C] duration-300 ease-in-out hover:bg-[#5570f1] hover:py-3.5 hover:px-5.5 hover:text-white dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-3 rounded-md py-2 h-12 px-5 font-inter font-medium text-[#53545C] duration-300 ease-in-out hover:bg-[#5570f1] hover:py-3.5 hover:px-5.5 hover:text-white dark:hover:bg-meta-4 ${
                     pathname.includes('bookings')
                       ? 'bg-[#5570f1] text-white'
                       : 'text-gray-500'
@@ -182,7 +182,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <NavLink
                   to="/"
-                  className={`group relative flex items-center gap-2.5 rounded-md py-5 h-15 px-5 font-inter  text-[#53545C] duration-300 ease-in-out hover:bg-[#5570f1] hover:py-3.5 hover:px-5.5 hover:text-white dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-3 rounded-md py-2 h-12 px-5 font-inter  text-[#53545C] duration-300 ease-in-out hover:bg-[#5570f1] hover:py-3.5 hover:px-5.5 hover:text-white dark:hover:bg-meta-4 ${
                     pathname.includes('profile')
                       ? 'bg-[#5570f1] text-white'
                       : 'text-gray-500'
@@ -221,7 +221,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     <React.Fragment>
                       <NavLink
                         to="/dashboard"
-                        className={`group relative flex items-center gap-2.5 rounded-md py-5 h-15 px-5 font-inter font-medium text-[#53545C]duration-300 ease-in-out hover:bg-[#5570f1] hover:py-3.5 hover:px-5.5 hover:text-white dark:hover:bg-meta-4 ${
+                        className={`group relative flex items-center gap-3 rounded-md py-2 h-12 px-5 font-inter font-medium text-[#53545C]duration-300 ease-in-out hover:bg-[#5570f1] hover:py-3.5 hover:px-5.5 hover:text-white dark:hover:bg-meta-4 ${
                           pathname.includes('/forms')
                             ? 'bg-[#5570f1] text-white'
                             : 'text-gray-500'
@@ -277,7 +277,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <NavLink
                   to="/tables"
-                  className={`group relative flex items-center gap-2.5 rounded-md py-5 h-15 px-5 font-inter font-medium text-[#53545C] duration-300 ease-in-out hover:bg-[#5570f1] hover:py-3.5 hover:px-5.5 hover:text-white dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-3 rounded-md py-2 h-12 px-5 font-inter font-medium text-[#53545C] duration-300 ease-in-out hover:bg-[#5570f1] hover:py-3.5 hover:px-5.5 hover:text-white dark:hover:bg-meta-4 ${
                     pathname.includes('tables')
                       ? 'bg-[#5570f1] text-white'
                       : 'text-gray-500'
@@ -317,7 +317,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <NavLink
                   to="/settings"
-                  className={`group relative flex items-center gap-2.5 rounded-md py-5 h-15 px-5 font-inter font-medium text-[#53545C] duration-300 ease-in-out hover:bg-[#5570f1] hover:py-3.5 hover:px-5.5 hover:text-white dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-3 rounded-md py-2 h-12 px-5 font-inter font-medium text-[#53545C] duration-300 ease-in-out hover:bg-[#5570f1] hover:py-3.5 hover:px-5.5 hover:text-white dark:hover:bg-meta-4 ${
                     pathname.includes('settings')
                       ? 'bg-[#5570f1] text-white'
                       : 'text-gray-500'
@@ -357,7 +357,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </li>
             </ul>
           </div>
-          <div className=" border text-sm h-15 border-white bg-[#5E63661A] rounded-2xl p-2 flex items-center gap-2">
+          <div className=" border text-sm h-12.5 w-60 border-white bg-[#5E63661A] rounded-2xl p-2 flex items-center gap-2">
             <a href="{your_link}">
               <div className="w-6 h-6 flex-shrink-0">
                 <img src={call} className="h-auto" alt="call" />
@@ -369,7 +369,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
           {/* <!-- Others Group --> */}
         </nav>
         {/* <!-- Sidebar Menu --> */}
-        <div className="fixed bottom-0  right-40 border text-sm font-inter h-15 border-white p-2 flex items-center justify-center gap-2">
+        <div className="fixed bottom-0  px-9 border text-sm font-inter h-15 border-white p-2 flex items-center justify-center gap-2">
           <a href="{your_link}">
             <div className="w-6 h-6 flex-shrink-0">
               <img src={logout} className="h-auto" alt="call" />
