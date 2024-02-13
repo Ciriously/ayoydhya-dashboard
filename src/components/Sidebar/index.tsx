@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import SidebarLinkGroup from './SidebarLinkGroup';
 import Logo from '../../images/logo/logo.jpg';
+import call from '../../images/icon/call.png';
+import logout from '../../images/icon/logout.png';
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -63,7 +65,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
       }`}
     >
       {/* <!-- SIDEBAR HEADER --> */}
-      <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
+      <div className="flex items-center mb-1 justify-between gap-2 px-6 py-5.5 lg:py-6.5">
         <NavLink to="/">
           <img src={Logo} alt="Logo" />
         </NavLink>
@@ -92,12 +94,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
       </div>
       {/* <!-- SIDEBAR HEADER --> */}
 
-      <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
+      <div className="no-scrollbar flex flex-col mt-0 overflow-y-auto duration-300 text-sm ease-linear">
         {/* <!-- Sidebar Menu --> */}
-        <nav className="mt-5 py-4 px-4 lg:mt-9 lg:px-6">
+        <nav className="mt-0 py-1 px-4 lg:mt-9 lg:px-6">
           {/* <!-- Menu Group --> */}
           <div>
-            <ul className="mb-6 flex flex-col gap-1.5">
+            <ul className="mb-18 flex flex-col gap-1.5">
               {/* <!-- Menu Item Dashboard --> */}
               <SidebarLinkGroup
                 activeCondition={
@@ -109,7 +111,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     <React.Fragment>
                       <NavLink
                         to="/dashboard"
-                        className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-[#53545C] duration-300 ease-in-out hover:bg-[#5570f1] dark:hover:bg-meta-4 ${
+                        className={`group relative flex items-center gap-2.5 rounded-md py-1 h-15 px-5 font-inter font-medium text-[#53545C] duration-300 ease-in-out hover:bg-[#5570f1] hover:py-3.5 hover:px-5.5 hover:text-white dark:hover:bg-meta-4 ${
                           pathname.includes('dashboard')
                             ? 'bg-[#5570f1] text-white'
                             : 'text-gray-500'
@@ -152,7 +154,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <NavLink
                   to="/bookings"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-black duration-300 ease-in-out hover:bg-[#5570f1] dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-2.5 rounded-md py-5 h-15 px-5 font-inter font-medium text-[#53545C] duration-300 ease-in-out hover:bg-[#5570f1] hover:py-3.5 hover:px-5.5 hover:text-white dark:hover:bg-meta-4 ${
                     pathname.includes('bookings')
                       ? 'bg-[#5570f1] text-white'
                       : 'text-gray-500'
@@ -180,8 +182,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <NavLink
                   to="/"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-black duration-300 ease-in-out hover:bg-[#5570f1] dark:hover:bg-meta-4 ${
-                    pathname.includes('profile') && 'bg-[#5570f1]'
+                  className={`group relative flex items-center gap-2.5 rounded-md py-5 h-15 px-5 font-inter  text-[#53545C] duration-300 ease-in-out hover:bg-[#5570f1] hover:py-3.5 hover:px-5.5 hover:text-white dark:hover:bg-meta-4 ${
+                    pathname.includes('profile')
+                      ? 'bg-[#5570f1] text-white'
+                      : 'text-gray-500'
                   }`}
                 >
                   <svg
@@ -217,7 +221,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     <React.Fragment>
                       <NavLink
                         to="/dashboard"
-                        className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-black duration-300 ease-in-out hover:bg-[#5570f1] dark:hover:bg-meta-4 ${
+                        className={`group relative flex items-center gap-2.5 rounded-md py-5 h-15 px-5 font-inter font-medium text-[#53545C]duration-300 ease-in-out hover:bg-[#5570f1] hover:py-3.5 hover:px-5.5 hover:text-white dark:hover:bg-meta-4 ${
                           pathname.includes('/forms')
                             ? 'bg-[#5570f1] text-white'
                             : 'text-gray-500'
@@ -273,7 +277,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <NavLink
                   to="/tables"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-black duration-300 ease-in-out hover:bg-[#5570f1] dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-2.5 rounded-md py-5 h-15 px-5 font-inter font-medium text-[#53545C] duration-300 ease-in-out hover:bg-[#5570f1] hover:py-3.5 hover:px-5.5 hover:text-white dark:hover:bg-meta-4 ${
                     pathname.includes('tables')
                       ? 'bg-[#5570f1] text-white'
                       : 'text-gray-500'
@@ -313,7 +317,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <NavLink
                   to="/settings"
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-black duration-300 ease-in-out hover:bg-[#5570f1] dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-2.5 rounded-md py-5 h-15 px-5 font-inter font-medium text-[#53545C] duration-300 ease-in-out hover:bg-[#5570f1] hover:py-3.5 hover:px-5.5 hover:text-white dark:hover:bg-meta-4 ${
                     pathname.includes('settings')
                       ? 'bg-[#5570f1] text-white'
                       : 'text-gray-500'
@@ -351,13 +355,28 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   Add New Entity
                 </NavLink>
               </li>
-              {/* <!-- Menu Item Settings --> */}
             </ul>
+          </div>
+          <div className=" border text-sm h-15 border-white bg-[#5E63661A] rounded-2xl p-2 flex items-center gap-2">
+            <a href="{your_link}">
+              <div className="w-6 h-6 flex-shrink-0">
+                <img src={call} className="h-auto" alt="call" />
+              </div>
+            </a>
+            <p className="text-black font-inter">Contact Support</p>
           </div>
 
           {/* <!-- Others Group --> */}
         </nav>
         {/* <!-- Sidebar Menu --> */}
+        <div className="fixed bottom-0  right-40 border text-sm font-inter h-15 border-white p-2 flex items-center justify-center gap-2">
+          <a href="{your_link}">
+            <div className="w-6 h-6 flex-shrink-0">
+              <img src={logout} className="h-auto" alt="call" />
+            </div>
+          </a>
+          <p className="text-red-500 font-inter">Logout</p>
+        </div>
       </div>
     </aside>
   );
