@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import CardDataStats from '../components/CardDataStats';
-import TableThree from '../components/Tables/TableThree';
 import DefaultLayout from '../layout/DefaultLayout';
-import Breadcrumb from '../components/Breadcrumbs/Breadcrumb';
 import { Package } from '../types/package';
+import next from '../images/icon/next.png';
+import prev from '../images/icon/prev.png';
+
 const packageData: Package[] = [
   {
     customerName: 'John Doe',
@@ -50,7 +50,7 @@ const packageData: Package[] = [
 const Bookings: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState(''); // State for search term
   const [currentPage, setCurrentPage] = useState(1); // State for current page
-  const [itemsPerPage] = useState(5); // Items per page
+  const [itemsPerPage, setItemsPerPage] = useState(5); // State for items per page
 
   // Filtering logic based on search term
   const filteredData = packageData.filter((packageItem) =>
@@ -62,20 +62,25 @@ const Bookings: React.FC = () => {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
 
-  // Change page
-  // Change page
+  // Change page function
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
+  // Handle items per page change function
+  const handleItemsPerPageChange = (value: string) => {
+    setItemsPerPage(parseInt(value));
+    setCurrentPage(1); // Reset current page to 1 when changing items per page
+  };
 
   return (
     <DefaultLayout>
-      <div className="bg-white">
-        <div>
+      <div className="bg-white rounded-xl h-full overflow-auto">
+        <div className="text-center text-black-2 font-medium mb-4 px-7 mt-4">
           <h2>Customers Orders</h2>
         </div>
-        <div className="max-w-full overflow-x-auto ">
+        <div className="max-w-full overflow-x-auto">
           <table className="w-full table-auto">
             <thead>
-              <tr className=" border-b border-t border-[#eee] text-left ">
+              <tr className="border-b border-t border-[#eee] text-left">
                 <th className="border-b border-[#fff] py-2 px-2 pl-5 dark:border-strokedark xl:pl-1">
                   <input
                     type="checkbox"
@@ -166,24 +171,54 @@ const Bookings: React.FC = () => {
         {/* Pagination */}
         <div className="flex justify-between items-center mt-4">
           <div>
+            <select
+              id="itemsPerPage"
+              onChange={(e) => handleItemsPerPageChange(e.target.value)}
+              value={itemsPerPage}
+              className="px-2 py-1 border rounded-md bg-gray-400 text-gray-600 dark:bg-darkinput dark:border-strokedark dark:text-white"
+            >
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="20">20</option>
+            </select>
+            <label htmlFor="itemsPerPage">Items per page: </label>
+          </div>
+
+          <div className="text-sm ml-96 align-left font-inter">
+            <select
+              id="selectPage"
+              onChange={(e) => paginate(parseInt(e.target.value))}
+              value={currentPage}
+              className="px-2 py-1 border rounded-md bg-gray-200 text-gray-600 dark:bg-darkinput dark:border-strokedark dark:text-white"
+            >
+              {Array.from(
+                { length: Math.ceil(filteredData.length / itemsPerPage) },
+                (_, i) => i + 1,
+              ).map((pageNumber) => (
+                <option key={pageNumber} value={pageNumber}>
+                  {pageNumber}
+                </option>
+              ))}
+            </select>{' '}
+            of {Math.ceil(filteredData.length / itemsPerPage)} pages
+            {/* {currentPage} of {Math.ceil(filteredData.length / itemsPerPage)} */}
+          </div>
+          <div>
             <button
               onClick={() => paginate(currentPage - 1)}
               disabled={currentPage === 1}
-              className="px-3 py-1 mr-2 border rounded-md bg-gray-200 text-gray-600 dark:bg-darkinput dark:border-strokedark dark:text-white"
+              className="px-3 py-1 mr-2  rounded-md bg-gray-200 text-gray-600 dark:bg-darkinput dark:border-strokedark dark:text-white"
             >
-              Previous
+              <img src={prev} className="h-3" alt="prev" />
             </button>
+
             <button
               onClick={() => paginate(currentPage + 1)}
               disabled={indexOfLastItem >= filteredData.length}
-              className="px-3 py-1 border rounded-md bg-gray-200 text-gray-600 dark:bg-darkinput dark:border-strokedark dark:text-white"
+              className="px-3 py-1 bg-gray-200 text-gray-600 dark:bg-darkinput dark:border-strokedark dark:text-white"
             >
-              Next
+              <img src={next} className="h-3" alt="Next" />
             </button>
-          </div>
-          <div>
-            Page {currentPage} of{' '}
-            {Math.ceil(filteredData.length / itemsPerPage)}
           </div>
         </div>
       </div>

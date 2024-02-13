@@ -96,7 +96,7 @@ const TableThree = () => {
           <input
             type="text"
             placeholder="Search"
-            className="w-full bg-transparent pl-9 pr-4 text-black focus:outline-none dark:text-white xl:w-125"
+            className="w-full bg-transparent border align- text-black focus:outline-none dark:text-white xl:w-125"
           />
         </div>
       </div>

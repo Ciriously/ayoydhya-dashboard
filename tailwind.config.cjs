@@ -1,4 +1,4 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -7,6 +7,7 @@ module.exports = {
   theme: {
     fontFamily: {
       satoshi: ['Satoshi', 'sans-serif'],
+      inter: ['Inter'],
     },
     screens: {
       '2xsm': '375px',
@@ -251,4 +252,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
+};

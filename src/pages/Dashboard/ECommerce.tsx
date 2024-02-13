@@ -85,9 +85,9 @@ const ECommerce: React.FC = () => {
           </svg>
         </CardDataStats>
       </div>
-      <div className="mt-4">
-        <Breadcrumb pageName="Todays Booking" />
-
+      <div className="mt-5 font-inter font">
+        <Breadcrumb pageName="Today's Booking" />
+        <div />
         <div className="flex flex-col gap-10">
           <TableThree />
         </div>
