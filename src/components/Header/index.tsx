@@ -2,7 +2,6 @@ import { Link, useLocation } from 'react-router-dom';
 import MainPageHeader from './dashboardheader';
 import DropdownNotification from './DropdownNotification';
 import DropdownUser from './DropdownUser';
-import SearchBar from './SearchBar';
 
 const Header = (props: {
   sidebarOpen: string | boolean | undefined;
@@ -71,7 +70,7 @@ const Header = (props: {
           ) : (
             <form action="https://formbold.com/s/unique_form_id" method="POST">
               <div className="relative">
-                <button className="absolute left-0 top-1/2 -translate-y-1/2">
+                <button className="absolute w-5 left-10 top-1/2 -translate-y-1/2">
                   <svg
                     className="fill-body hover:fill-primary dark:fill-bodydark dark:hover:fill-primary"
                     width="20"
@@ -97,8 +96,8 @@ const Header = (props: {
 
                 <input
                   type="text"
-                  placeholder="Type to search..."
-                  className="w-full bg-transparent pl-9 pr-4 text-black focus:outline-none dark:text-white xl:w-125"
+                  placeholder="Search..."
+                  className=" bg-[#5570F129] ml-9 pl-9 pr-4 text-black focus:outline-none dark:text-white xl:w-132.5 rounded-lg h-12"
                 />
               </div>
             </form>
