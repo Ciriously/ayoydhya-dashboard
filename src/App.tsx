@@ -47,7 +47,7 @@ function App() {
           path="/dashboard"
           element={
             <>
-              <PageTitle title="eCommerce Dashboard | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <PageTitle title=" Dashboard " />
               <ECommerce />
             </>
           }
