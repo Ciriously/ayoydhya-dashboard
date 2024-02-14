@@ -34,8 +34,8 @@ const Bookings: React.FC = () => {
   return (
     <DefaultLayout>
       <div className="bg-white rounded-xl h-screen  overflow-auto">
-        <div className="flex justify-between text-center text-black-2 font-medium mb-4 px-7 mt-4">
-          <h2>Customers Orders</h2>
+        <div className="flex justify-between text-center font-inter ml-75 text-[#45464E] font-medium mb-4 px-7 mt-4">
+          <h2 className="mx-auto text-lg">Customers Orders</h2>
           <div className="flex">
             {/* Button for filtering by hotels */}
             <HotelBtn />
@@ -162,7 +162,7 @@ const Bookings: React.FC = () => {
                 id="itemsPerPage"
                 onChange={(e) => handleItemsPerPageChange(e.target.value)}
                 value={itemsPerPage}
-                className="px-2 mr-2 ml-4 py-1 border-white rounded-md bg-[#5E636614] text-[#A6A8B1] dark:bg-darkinput dark:text-white"
+                className="px-2 mr-2 ml-4 py-1.5 border-white rounded-md bg-[#5E636614] text-[#A6A8B1] dark:bg-darkinput dark:text-white"
               >
                 <option value="5">5</option>
                 <option value="12">12</option>
@@ -176,9 +176,11 @@ const Bookings: React.FC = () => {
                 Items per page
               </label>
             </div>
-            <h2 className="text-sm ml-5 font-inter"> 1-12 of 200 items</h2>
           </div>
-
+          <h2 className="text-sm ml-5  py-1 mt-1  font-inter">
+            {' '}
+            1-12 of 200 items
+          </h2>
           <div className="text-sm text-[#666666] mt-1 ml-auto font-inter">
             <span>
               Page{' '}
@@ -201,7 +203,7 @@ const Bookings: React.FC = () => {
             </span>
           </div>
 
-          <div>
+          <div className="mr-4 ml-7">
             <button
               onClick={() => paginate(currentPage - 1)}
               disabled={currentPage === 1}

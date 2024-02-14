@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import filter from '../../images/icon/filter.png';
 
 const HotelBtn: React.FC = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -34,9 +35,11 @@ const HotelBtn: React.FC = () => {
   return (
     <div className="relative">
       <button
-        className="bg-white text-[#53545C] border px-4 py-2 rounded-md mr-2"
+        className="bg-white text-[#53545C] border px-4 py-2 rounded-md mr-2 flex items-center"
         onClick={handleButtonClick}
       >
+        <img src={filter} alt="Filter Icon" className="mr-2" />{' '}
+        {/* Add this line */}
         Filter by Hotels
       </button>
       {isDropdownOpen && (
