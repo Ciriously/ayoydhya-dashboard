@@ -255,7 +255,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </li>
             </ul>
           </div>
-          <div className=" border text-sm h-12.5 w-60 border-white bg-[#5E63661A] rounded-2xl p-2 flex items-center gap-2">
+          <div className=" border text-sm h-12.5 w-60 border-white bg-[#5E63661A] rounded-2xl p-5 flex items-center gap-2">
             <a href="{your_link}">
               <div className="w-6 h-6 flex-shrink-0">
                 <img src={call} className="h-auto" alt="call" />
@@ -267,7 +267,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
           {/* <!-- Others Group --> */}
         </nav>
         {/* <!-- Sidebar Menu --> */}
-        <div className="fixed bottom-0  px-9 border text-sm font-inter h-15 border-white p-2 flex items-center justify-center gap-2">
+        <div className="fixed bottom-0  px-11 border text-sm font-inter h-15 border-white p-2 flex items-center justify-center gap-2">
           <a href="{your_link}">
             <div className="w-6 h-6 flex-shrink-0">
               <img src={logout} className="h-auto" alt="call" />

@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import MainPageHeader from './dashboardheader';
+import MainPageHeader from './Dashboardheader';
 import DropdownNotification from './DropdownNotification';
 import DropdownUser from './DropdownUser';
 

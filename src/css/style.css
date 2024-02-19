@@ -215,3 +215,37 @@ span.flatpickr-weekday,
 [x-cloak] {
   display: none !important;
 }
+
+/* CSS */
+.scrollable-container {
+  /* Set the container to have a light gray background */
+  background-color: #f2f2f2;
+  /* Set the width and height of the container */
+  width: 300px;
+  height: 200px;
+  /* Make the container scrollable */
+  overflow-y: auto;
+  /* Set the scrollbar to be gray */
+  scrollbar-color: gray gray;
+  scrollbar-width: thin; /* "auto" for automatic scrollbar width, "thin" for a thinner scrollbar */
+}
+
+/* Define the styles for the scrollbar */
+/* WebKit browsers (Chrome, Safari, etc.) */
+.scrollable-container::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+  background-color: gray; /* Color of the thumb */
+  border-radius: 5px; /* Roundness of the thumb */
+}
+
+/* Other browsers */
+.scrollable-container {
+  scrollbar-width: thin; /* "auto" for automatic scrollbar width, "thin" for a thinner scrollbar */
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+  background-color: #f2f2f2; /* Color of the scrollbar track */
+}

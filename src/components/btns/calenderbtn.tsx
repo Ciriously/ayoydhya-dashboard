@@ -28,14 +28,14 @@ const DateFilterBtn: React.FC = () => {
         onClick={handleButtonClick}
       >
         <img src={Calendar} alt="Calendar" className="mr-2" />
-        Filter by Date
+        <span className="text-base font-normal">Filter by Date</span>
       </button>
       {isDropdownOpen && (
         <div className="absolute top-12 right-2 z-10">
           <div className="bg-white rounded-lg shadow-lg w-100">
             <div className="p-6">
-              <h3 className="text-lg text-left font-semibold mb-2">By Date</h3>
-              {/* _ Filters by days, weeks, months, and last date, week, month _ */}
+              <h3 className="text-lg font-semibold mb-2">By Date</h3>
+              {/* Filters by days, weeks, months, and last date, week, month */}
               <div className="grid grid-cols-2 font-inter text-[#83898C] text-sm gap-x-4 mb-4">
                 <div className="flex flex-col">
                   <label className="inline-flex items-center mb-2">
@@ -66,7 +66,7 @@ const DateFilterBtn: React.FC = () => {
                   </label>
                 </div>
               </div>
-              {/* Title for date selection  */}
+              {/* Title for date selection */}
               <h4 className="text-lg font-semibold mb-2 text-left">
                 <input type="checkbox" className="mr-2 rounded-lg" />
                 Date Range
